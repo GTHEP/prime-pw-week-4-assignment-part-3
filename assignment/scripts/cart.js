@@ -2,13 +2,21 @@ console.log('***** Cart Functions *****');
 // Make sure to test all functions here in the JS file!
 // We want to see how you are testing your code!!!
 
+// Define a constant for the maximum number of items
+const maxItems = 5;
 //Define an empty array as basket
 let basket = [];
 
+
 //Create a function to add an item to basket
 function addItem(item) {
-  basket.push(item);
-  return true;
+  if (isFull(basket) === true) {
+    console.log("Basket is currently full. Could not add the item.");
+    return false;
+  } else {
+    basket.push(item);
+    return true;
+  }
 }
 
 //testing addItem
@@ -45,3 +53,25 @@ function empty(array) {
 console.log(`Basket is ${basket}`);
 console.log('Emptying basket.', empty(basket));
 console.log(`Basket is ${(basket.length === 0 ? "empty" : "not empty")}`);
+
+// STRETCH GOALS
+
+// Create a function to determine if the basket array can contain anymore values
+function isFull(array) {
+  if (array.length < maxItems) {
+    return false;
+  } else {
+    return true;
+  }
+}
+
+//Testing isFull function
+let foodList = ["peaches", "plums", "bananas", "strawberries", "apples", "oranges"]
+
+for (x of foodList) {
+  addItem(x);
+}
+console.log(`Basket is ${basket}`);
+console.log(`Basket has ${isFull(basket) ? "no more space" : "more space"}`);
+console.log('Emptying basket.', empty(basket));
+console.log(`Basket has ${isFull(basket) ? "no more space" : "more space"}`);
