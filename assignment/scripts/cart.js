@@ -19,13 +19,6 @@ function addItem(item) {
   }
 }
 
-//testing addItem
-console.log(`Basket is ${basket}`);
-console.log('Adding apples (expect true)', addItem("apples") );
-console.log(`basket is now: ${basket}`);
-console.log('Adding oranges (expect true)', addItem("oranges") );
-console.log(`basket is now: ${basket}`);
-
 // Create a function to list out items from an array with each on a new line.
 function listItems(array) {
   for (let i = 0; i < basket.length; i++) {
@@ -33,26 +26,10 @@ function listItems(array) {
   }
 }
 
-// Testing listItems
-if (basket.length === 0) {
-  console.log(`Basket has no items`);
-} else if (basket.length === 1) {
-  console.log(`Basket has 1 item.`);
-  listItems(basket);
-} else {
-  console.log(`Basket has ${basket.length} items.`);
-  listItems(basket);
-}
-
 // Create a function to set the basket array back to empty.
 function empty(array) {
   return basket = [];
 }
-
-// Testing the empty function
-console.log(`Basket is ${basket}`);
-console.log('Emptying basket.', empty(basket));
-console.log(`Basket is ${(basket.length === 0 ? "empty" : "not empty")}`);
 
 // STRETCH GOALS
 
@@ -65,12 +42,36 @@ function isFull(array) {
   }
 }
 
+//testing addItem
+console.log(`Basket is ${basket}`);
+console.log('Adding apples (expect true)', addItem("apples") );
+console.log(`basket is now: ${basket}`);
+console.log('Adding oranges (expect true)', addItem("oranges") );
+console.log(`basket is now: ${basket}`);
+
+// Testing listItems
+if (basket.length === 0) {
+  console.log(`Basket has no items`);
+} else if (basket.length === 1) {
+  console.log(`Basket has 1 item.`);
+  listItems(basket);
+} else {
+  console.log(`Basket has ${basket.length} items.`);
+  listItems(basket);
+}
+
+// Testing the empty function
+console.log(`Basket is ${basket}`);
+console.log('Emptying basket.', empty(basket));
+console.log(`Basket is ${(basket.length === 0 ? "empty" : "not empty")}`);
+
 //Testing isFull function
 let foodList = ["peaches", "plums", "bananas", "strawberries", "apples", "oranges"]
 
 for (x of foodList) {
   addItem(x);
 }
+
 console.log(`Basket is ${basket}`);
 console.log(`Basket has ${isFull(basket) ? "no more space" : "more space"}`);
 console.log('Emptying basket.', empty(basket));
