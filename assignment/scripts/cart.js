@@ -18,14 +18,15 @@ function addItem(item) {
     return true;
   }
 }
-//testing addItem
+
+console.log(`
+  Testing addItem
+  `);
 console.log(`Basket is ${basket}`);
 console.log('Adding apples (expect true)', addItem("apples") );
 console.log(`basket is now: ${basket}`);
 console.log('Adding oranges (expect true)', addItem("oranges") );
 console.log(`basket is now: ${basket}`);
-
-console.log("---------------------------");
 
 // Create a function to list out items from an array with each on a new line.
 function listItems(array) {
@@ -35,6 +36,9 @@ function listItems(array) {
 }
 
 // Testing listItems
+console.log(`
+  Testing listItems
+  `);
 console.log("Listing out items in basket:");
 listItems(basket);
 
@@ -48,20 +52,18 @@ listItems(basket);
 //   listItems(basket);
 // }
 
-console.log("---------------------------");
-
 // Create a function to set the basket array back to empty.
 function empty(array) {
   return basket = [];
 }
 
 // Testing the empty function
-console.log("Testing the empty function.");
+console.log(`
+  Testing empty
+  `);
 console.log(`Basket is ${basket}`);
 console.log('Emptying basket.', empty(basket));
 console.log(`Basket is ${(basket.length === 0 ? "empty" : "not empty")}`);
-
-console.log("---------------------------");
 
 // STRETCH GOALS
 
@@ -75,11 +77,13 @@ function isFull(array) {
 }
 
 //Testing isFull function
-console.log("Testing the isFull function");
+console.log(`
+  Testing isFull
+  `);
 let foodList = ["peaches", "plums", "bananas", "strawberries", "apples", "oranges", "apricots"]
 
 console.log(`Adding ${foodList} to basket.`);
-//console.log("Adding list of food to basket.");
+
 for (x of foodList) {
   addItem(x);
 }
@@ -88,3 +92,27 @@ console.log(`Basket is ${basket}`);
 console.log(`Basket has ${isFull(basket) ? "no more space" : "more space"}`);
 console.log('Emptying basket.', empty(basket));
 console.log(`Basket has ${isFull(basket) ? "no more space" : "more space"}`);
+
+// create a function that removes a selected items
+function removeItem(item) {
+  if (basket.includes(item)) {
+    let index = basket.indexOf(item);
+    let removedItem = basket.splice(index, 1);
+    return removedItem;
+  } else {
+    return null;
+  }
+}
+
+console.log(`
+  Testing removeItem
+  `);
+for (x of foodList) {
+  addItem(x);
+}
+
+console.log(`Basket is ${basket}`);
+console.log('Attempting to remove "plums":', removeItem("plums"));
+console.log(`basket is now: ${basket}`);
+console.log('Attempting to remove "pizza":', removeItem("pizza"));
+console.log(`basket is now: ${basket}`);
