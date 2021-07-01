@@ -30,8 +30,8 @@ console.log(`basket is now: ${basket}`);
 
 // Create a function to list out items from an array with each on a new line.
 function listItems(array) {
-  for (let i = 0; i < basket.length; i++) {
-    console.log(`Item ${i+1}: ${basket[i]}`);
+  for (let i = 0; i < array.length; i++) {
+    console.log(`Item ${i+1}: ${array[i]}`);
   }
 }
 
